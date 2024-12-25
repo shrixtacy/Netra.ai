@@ -1,16 +1,16 @@
-##Project Documentation
+# Project Documentation
 
-### 1. Overview
+## Overview
 This project is designed as a modular, scalable application with functionalities such as object detection, navigation systems, speech services, and visualization components. The codebase follows a structured approach, separating logic into utilities, services, components, and styles for better maintainability.
 
-### 2. Directory Structure
+## Directory Structure
 
-#### Root Directory
+### Root Directory
 - **`package.json`**: Defines project dependencies and scripts.
 - **`package-lock.json`**: Locks the versions of dependencies.
 - **`index.html`**: The entry point for the web application.
 
-#### `src/` Directory
+### `src/` Directory
 The main source folder containing scripts, utilities, services, and styles.
 
 - **`src/stats.js`**: Handles application statistics.
@@ -21,13 +21,13 @@ The main source folder containing scripts, utilities, services, and styles.
 - **`src/objectDetection.js`**: Implements object detection logic.
 - **`src/speechService.js`**: Provides speech recognition and synthesis capabilities.
 
-#### `src/utils/`
+### `src/utils/`
 Utility files for reusable functionality:
 - **`constants.js`**: Defines reusable constants across the project.
 - **`domUtils.js`**: Contains utility functions for DOM manipulation.
 - **`navigation.js`**: Contains helper methods for navigation-related tasks.
 
-#### `src/services/`
+### `src/services/`
 Modular services that handle core application logic:
 - **`ObjectDetector.js`**: A service for object detection logic.
 - **`Stats.js`**: Provides methods for tracking and managing statistics.
@@ -35,7 +35,7 @@ Modular services that handle core application logic:
 - **`NavigationSystem.js`**: Implements the navigation system's business logic.
 - **`Visualizer.js`**: Service for managing visualization features.
 
-#### `src/styles/`
+### `src/styles/`
 CSS files for styling the application:
 - **General Styles**: `index.css`, `theme.css`, `base.css`
 - **Component Styles** (`src/styles/components`):
@@ -46,16 +46,16 @@ CSS files for styling the application:
   - **`navbar.css`**: Styles for navigation bars.
   - **`footer.css`**: Styles for footers.
 
-#### `src/managers/`
+### `src/managers/`
 - **`CameraManager.js`**: Manages camera initialization, control, and data handling.
 
-#### `src/components/`
+### `src/components/`
 - **`CameraButton.js`**: A reusable button component for controlling camera features.
 
-### 3. Code Documentation
+## Code Documentation
 Each file/module includes descriptions, methods, parameters, and return values where applicable.
 
-#### Example: `src/objectDetection.js`
+### Example: `src/objectDetection.js`
 **Description**: Implements object detection logic using a machine learning model.
 ```javascript
 /**
@@ -77,7 +77,7 @@ function detectObjects(input) {
 }
 ```
 
-### 4. Installation & Setup
+## Installation & Setup
 1. Clone the repository:
    ```bash
    git clone <repository-url>
@@ -95,11 +95,11 @@ function detectObjects(input) {
    npm start
    ```
 
-### 5. Usage Guide
+## Usage Guide
 - Open the `index.html` file in a browser or run the application using the development server.
 - Follow the on-screen instructions to utilize functionalities like object detection, speech services, and navigation systems.
 
-### 6. Future Enhancements
+## Future Enhancements
 - Add unit tests for critical modules.
 - Optimize services for better performance.
 - Improve UI/UX of components.
