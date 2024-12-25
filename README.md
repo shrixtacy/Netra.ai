@@ -1,2 +1,0 @@
-# Naavi
-NavAI - Navigational AI 
