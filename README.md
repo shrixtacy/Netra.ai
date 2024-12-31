@@ -65,35 +65,67 @@ NETRA.AI represents a pioneering initiative in the domain of assistive technolog
 ## **Folder Structure**
 
 ```plaintext
-Netra_AI/
-|-- frontend/
-|   |-- src/
-|   |   |-- components/
-|   |   |   |-- Navigation.js
-|   |   |   |-- ObstacleList.js
-|   |   |-- styles/
-|   |   |   |-- App.css
-|   |   |-- utils/
-|   |   |   |-- api.js
-|   |-- public/
-|-- backend/
-|   |-- app/
-|   |   |-- api/
-|   |   |   |-- detect.py
-|   |   |-- models/
-|   |   |   |-- obstacle_model.py
-|   |   |-- utils/
-|   |   |   |-- video_processing.py
-|-- models/
-|   |-- pretrained/
-|   |   |-- base_model.h5
-|   |-- custom/
-|   |   |-- custom_model.h5
-|-- database/
-|   |-- user_data.db
-|-- tests/
-|   |-- test_api.py
-|   |-- test_models.py
+NETRA AI CODE BASE/
+├── node_modules/
+├── src/
+│ ├── components/
+│ │ ├── CameraButton.js
+│ │ ├── ModeSelector.js
+│ ├── Config/
+│ │ ├── voiceConfig.js
+│ ├── managers/
+│ │ ├── CameraManager.js
+│ ├── services/
+│ │ ├── ModelLoader.js
+│ │ ├── PredictionFilter.js
+│ │ ├── environment/
+│ │ │ ├── DescriptionGenerator.js
+│ │ │ ├── EnvironmentAnalyzer.js
+│ │ │ ├── ObjectClassifier.js
+│ │ ├── modes/
+│ │ │ ├── GuideMode.js
+│ │ │ ├── NavigateMode.js
+│ │ │ ├── OperationMode.js
+│ │ ├── navigation/
+│ │ │ ├── NavigationMessage.js
+│ │ ├── speech/
+│ │ │ ├── MessageFormatter.js
+│ │ │ ├── MessageDebouncer.js
+│ │ │ ├── SpeechQueue.js
+│ │ ├── voice/
+│ │ ├── commands/
+│ │ │ ├── StopCommandHandler.js
+│ │ ├── CommandProcessor.js
+│ │ ├── VoiceState.js
+│ │ ├── NavigationSystem.js
+│ │ ├── ObjectDetector.js
+│ │ ├── SpeechService.js
+│ │ ├── SpeechRecognizer.js
+│ │ ├── Status.js
+│ │ ├── Visualizer.js
+│ ├── styles/
+│ │ ├── buttons.css
+│ │ ├── footer.css
+│ │ ├── navbar.css
+│ │ ├── sections.css
+│ │ ├── stats.css
+│ │ ├── video.css
+│ │ ├── base.css
+│ │ ├── index.css
+│ │ ├── theme.css
+│ ├── utils/
+│ ├── constants.js
+│ ├── domUtils.js
+│ ├── mobileUtils.js
+│ ├── navigation.js
+│ ├── scrollUtils.js
+│ ├── main.js
+├── styles/
+│ ├── style.css
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
 ```
 
 ---
