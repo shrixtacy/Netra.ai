@@ -65,8 +65,12 @@ NETRA.AI represents a pioneering initiative in the domain of assistive technolog
 ## **Folder Structure**
 
 ```plaintext
-NETRA AI CODE BASE/
-├── node_modules/
+PROJECT/
+├── dist/
+│ ├── assets/
+│ │ ├── index-bdf64876.css
+│ │ ├── index-dec75232.js
+│ ├── index.html
 ├── src/
 │ ├── components/
 │ │ ├── CameraButton.js
@@ -76,8 +80,9 @@ NETRA AI CODE BASE/
 │ ├── managers/
 │ │ ├── CameraManager.js
 │ ├── services/
-│ │ ├── ModelLoader.js
-│ │ ├── PredictionFilter.js
+│ │ ├── ai/
+│ │ │ ├── ModelLoader.js
+│ │ │ ├── PredictionFilter.js
 │ │ ├── environment/
 │ │ │ ├── DescriptionGenerator.js
 │ │ │ ├── EnvironmentAnalyzer.js
@@ -96,36 +101,40 @@ NETRA AI CODE BASE/
 │ │ ├── commands/
 │ │ │ ├── StopCommandHandler.js
 │ │ ├── CommandProcessor.js
+│ │ ├── greetings.js
+│ │ ├── SpeechRecognizer.js
+│ │ ├── SpeechSynthesizer.js
+│ │ ├── VoiceAssistant.js
+│ │ ├── VoiceInitializer.js
 │ │ ├── VoiceState.js
 │ │ ├── NavigationSystem.js
 │ │ ├── ObjectDetector.js
 │ │ ├── SpeechService.js
-│ │ ├── SpeechRecognizer.js
 │ │ ├── Status.js
 │ │ ├── Visualizer.js
 │ ├── styles/
-│ │ ├── buttons.css
-│ │ ├── footer.css
-│ │ ├── navbar.css
-│ │ ├── sections.css
-│ │ ├── stats.css
-│ │ ├── video.css
+│ │ ├── component/
+│ │ │ ├── buttons.css
+│ │ │ ├── footer.css
+│ │ │ ├── navbar.css
+│ │ │ ├── sections.css
+│ │ │ ├── stats.css
+│ │ │ ├── video.css
 │ │ ├── base.css
 │ │ ├── index.css
 │ │ ├── theme.css
 │ ├── utils/
-│ ├── constants.js
-│ ├── domUtils.js
-│ ├── mobileUtils.js
-│ ├── navigation.js
-│ ├── scrollUtils.js
+│ │ ├── constants.js
+│ │ ├── domUtils.js
+│ │ ├── mobileNav.js
+│ │ ├── navigation.js
+│ │ ├── scrollUtils.js
 │ ├── main.js
-├── styles/
-│ ├── style.css
 ├── index.html
-├── package.json
 ├── package-lock.json
+├── package.json
 ├── vite.config.js
+
 ```
 
 ---
