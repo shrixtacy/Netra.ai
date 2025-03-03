@@ -61,8 +61,7 @@ The application follows a modular, service-oriented architecture with clear sepa
 #### Visualization System
 
 - **Visualizer**: Renders camera feed, object detection boxes, and zones
-- **Stats**: Displays performance metrics and detection statistics\
-  \
+- **Stats**: Displays performance metrics and detection statistics
 
 
 ---
@@ -72,89 +71,71 @@ The application follows a modular, service-oriented architecture with clear sepa
 ├── package.json                    # Project dependencies and scripts
 ├── vite.config.js                  # Vite configuration
 │
-├── src/                             # Source code directory
-│   ├── main.js                      # Application entry point
-│   ├── style.css                    # Main CSS file
-│
-│   ├── components/                  # UI Components
-│   │   ├── CameraButton.js          # Camera toggle button
-│   │   ├── ModeSelector.js          # Mode selection dropdown
+├── src/                            # Source code directory
+│   ├── main.js                     # Application entry point
+│   ├── style.css                   # Main CSS styles
 │   │
-│   ├── config/                      # Configuration files
-│   │   └── voiceConfig.js           # Voice assistant settings
+│   ├── components/                 # UI Components
+│   │   ├── CameraButton.js         # Camera toggle button component
+│   │   └── ModeSelector.js         # Mode selection component
 │   │
-│   ├── managers/                    # Manager classes
-│   │   └── CameraManager.js         # Handles camera operations
+│   ├── config/                     # Configuration files
+│   │   └── voiceConfig.js          # Voice assistant configuration
 │   │
-│   ├── services/                    # Core functionality
-│   │   ├── NavigationSystem.js      # Navigation logic
-│   │   ├── ObjectDetector.js        # Object detection with AI
-│   │   ├── SpeechService.js         # Text-to-speech (TTS) service
-│   │   ├── Stats.js                 # Statistics display and tracking
-│   │   ├── Visualizer.js            # Canvas-based visualization
+│   ├── managers/                   # Manager classes
+│   │   └── CameraManager.js        # Camera operations manager
 │   │
-│   │   ├── ai/                      # AI-related services
-│   │   │   ├── ModelLoader.js       # Loads TensorFlow models
-│   │   │   └── PredictionFilter.js  # Filters AI model predictions
+│   ├── services/                   # Core services
+│   │   ├── NavigationSystem.js     # Navigation logic
+│   │   ├── ObjectDetector.js       # Object detection service
+│   │   ├── SpeechService.js        # Speech output service
+│   │   ├── Stats.js                # Statistics display service
+│   │   ├── Visualizer.js           # Canvas visualization service
+│   │   │
+│   │   ├── ai/                     # AI-related services
+│   │   │   ├── ModelLoader.js      # TensorFlow model loader
+│   │   │   └── PredictionFilter.js # Object prediction filtering
+│   │   │
+│   │   ├── camera/                 # Camera-related services
+│   │   │   ├── CameraCleanup.js    # Camera resource cleanup
+│   │   │   ├── CameraError.js      # Camera error handling
+│   │   │   ├── CameraInitializer.js # Camera initialization
+│   │   │   ├── CameraService.js    # Camera core service
+│   │   │   └── CameraState.js      # Camera state management
+│   │   │
+│   │   ├── environment/            # Environment analysis
+│   │   │   ├── DescriptionGenerator.js # Environment description
+│   │   │   ├── EnvironmentAnalyzer.js  # Environment analysis
+│   │   │   └── ObjectClassifier.js     # Object classification
+│   │   │
+│   │   ├── modes/                  # Operation modes
+│   │   │   ├── GuideMode.js        # Guide mode implementation
+│   │   │   ├── NavigateMode.js     # Navigate mode implementation
+│   │   │   └── OperationMode.js    # Mode definitions
+│   │   │
+│   │   ├── navigation/             # Navigation services
+│   │   │   └── NavigationMessage.js # Navigation message generation
+│   │   │
+│   │   ├── speech/                 # Speech-related services
+│   │   │   ├── MessageFormatter.js # Speech message formatting
+│   │   │   ├── SpeechDebouncer.js  # Speech repetition prevention
+│   │   │   ├── SpeechQueue.js      # Speech priority queue
+│   │   │   └── VoiceSelector.js    # Voice selection service
+│   │   │
+│   │   └── voice/                  # Voice assistant services
+│   │       ├── CommandProcessor.js # Voice command processing
+│   │       ├── SpeechRecognizer.js # Speech recognition
+│   │       ├── SpeechSynthesizer.js # Speech synthesis
+│   │       ├── VoiceAssistant.js   # Voice assistant main service
+│   │       ├── VoiceInitializer.js # Voice services initialization
+│   │       ├── VoiceState.js       # Voice assistant state
+│   │       ├── commands/           # Voice command handlers
+│   │       │   └── StopCommandHandler.js # Stop command handler
+│   │       └── greetings.js        # Voice greeting messages
 │   │
-│   │   ├── camera/                  # Camera-related services
-│   │   │   ├── CameraInitializer.js # Initializes camera settings
-│   │   │   ├── CameraService.js     # Core camera functions
-│   │   │   ├── CameraState.js       # Manages camera state
-│   │   │   ├── CameraError.js       # Handles camera errors
-│   │   │   └── CameraCleanup.js     # Frees camera resources
-│   │
-│   │   ├── environment/             # Environment analysis
-│   │   │   ├── EnvironmentAnalyzer.js # Analyzes surroundings
-│   │   │   ├── ObjectClassifier.js    # Classifies detected objects
-│   │   │   └── DescriptionGenerator.js # Generates verbal descriptions
-│   │
-│   │   ├── modes/                   # Operational modes
-│   │   │   ├── GuideMode.js         # Guide mode logic
-│   │   │   ├── NavigateMode.js      # Navigation mode logic
-│   │   │   └── OperationMode.js     # Mode definitions
-│   │
-│   │   ├── navigation/              # Navigation services
-│   │   │   └── NavigationMessage.js # Generates navigation messages
-│   │
-│   │   ├── speech/                  # Speech processing
-│   │   │   ├── SpeechQueue.js       # Speech prioritization queue
-│   │   │   ├── SpeechDebouncer.js   # Prevents redundant speech
-│   │   │   ├── MessageFormatter.js  # Formats speech messages
-│   │   │   └── VoiceSelector.js     # Selects voice output
-│   │
-│   │   ├── voice/                   # Voice assistant
-│   │   │   ├── VoiceAssistant.js    # Main voice assistant service
-│   │   │   ├── SpeechRecognizer.js  # Converts speech to text
-│   │   │   ├── SpeechSynthesizer.js # Converts text to speech
-│   │   │   ├── VoiceInitializer.js  # Initializes voice features
-│   │   │   ├── VoiceState.js        # Manages voice assistant state
-│   │   │   ├── CommandProcessor.js  # Processes voice commands
-│   │   │   ├── commands/            # Specific voice commands
-│   │   │   │   └── StopCommand.js   # Handles stop command
-│   │   │   └── greetings.js         # Predefined voice greetings
-│   │
-│   ├── styles/                      # CSS styles (modular)
-│   │   ├── base.css                 # Base styles
-│   │   ├── index.css                # Global styles
-│   │   ├── theme.css                # Theme colors and variables
-│   │   ├── components/              # Component-specific styles
-│   │   │   ├── buttons.css          # Button styles
-│   │   │   ├── footer.css           # Footer styles
-│   │   │   ├── navbar.css           # Navigation bar styles
-│   │   │   ├── sections.css         # General section styles
-│   │   │   ├── stats.css            # Statistics display styles
-│   │   │   └── video.css            # Video container styles
-│   │
-│   ├── utils/                       # Utility functions
-│   │   ├── constants.js             # Global constants
-│   │   ├── domUtils.js              # DOM manipulation helpers
-│   │   ├── mobileNav.js             # Mobile navigation functions
-│   │   ├── navigation.js            # Navigation utilities
-│   │   └── scrollUtils.js           # Smooth scrolling functions
-│
-└── node_modules/                    # Node.js dependencies (not shown)
-
+│   ├── styles/                     # CSS styles (modular)
+│   ├── utils/                      # Utility functions
+│   └── node_modules/                # Node.js dependencies (not shown)
 ---
 Data Flow
 
