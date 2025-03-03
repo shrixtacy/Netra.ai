@@ -25,6 +25,7 @@
 
 - **Terser**: JavaScript minifier for production builds
 ---
+---
 /home/project/
 │
 ├── index.html                      
@@ -113,9 +114,7 @@
 │       ├── navigation.js          
 │       └── scrollUtils.js         
 │
-└── node_modules/                  
-          
-
+└── node_modules/ 
 ---
 Data Flow
 
