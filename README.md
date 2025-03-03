@@ -26,95 +26,98 @@
 - **Terser**: JavaScript minifier for production builds
 ---
 ---
+# Project Directory Structure
+
+```
 /home/project/
 │
-├── index.html                      
-├── package.json                    
-├── vite.config.js                  
+├── index.html                      # Main HTML entry point
+├── package.json                    # Project dependencies and scripts
+├── vite.config.js                  # Vite configuration
 │
-├── src/                            
-│   ├── main.js                     
-│   ├── style.css                   
+├── src/                            # Source code directory
+│   ├── main.js                     # Application entry point
+│   ├── style.css                   # Main CSS styles
 │   │
-│   ├── components/                 
-│   │   ├── CameraButton.js         
-│   │   └── ModeSelector.js         
+│   ├── components/                 # UI Components
+│   │   ├── CameraButton.js         # Camera toggle button component
+│   │   └── ModeSelector.js         # Mode selection component
 │   │
-│   ├── config/                     
-│   │   └── voiceConfig.js          
+│   ├── config/                     # Configuration files
+│   │   └── voiceConfig.js          # Voice assistant configuration
 │   │
-│   ├── managers/                   
-│   │   └── CameraManager.js        
+│   ├── managers/                   # Manager classes
+│   │   └── CameraManager.js        # Camera operations manager
 │   │
-│   ├── services/                   
-│   │   ├── NavigationSystem.js     
-│   │   ├── ObjectDetector.js       
-│   │   ├── SpeechService.js        
-│   │   ├── Stats.js                
-│   │   ├── Visualizer.js           
+│   ├── services/                   # Core services
+│   │   ├── NavigationSystem.js     # Navigation logic
+│   │   ├── ObjectDetector.js       # Object detection service
+│   │   ├── SpeechService.js        # Speech output service
+│   │   ├── Stats.js                # Statistics display service
+│   │   ├── Visualizer.js           # Canvas visualization service
 │   │   │
-│   │   ├── ai/                     
-│   │   │   ├── ModelLoader.js      
-│   │   │   └── PredictionFilter.js 
+│   │   ├── ai/                     # AI-related services
+│   │   │   ├── ModelLoader.js      # TensorFlow model loader
+│   │   │   └── PredictionFilter.js # Object prediction filtering
 │   │   │
-│   │   ├── camera/                 
-│   │   │   ├── CameraCleanup.js    
-│   │   │   ├── CameraError.js      
-│   │   │   ├── CameraInitializer.js 
-│   │   │   ├── CameraService.js    
-│   │   │   └── CameraState.js      
+│   │   ├── camera/                 # Camera-related services
+│   │   │   ├── CameraCleanup.js    # Camera resource cleanup
+│   │   │   ├── CameraError.js      # Camera error handling
+│   │   │   ├── CameraInitializer.js # Camera initialization
+│   │   │   ├── CameraService.js    # Camera core service
+│   │   │   └── CameraState.js      # Camera state management
 │   │   │
-│   │   ├── environment/            
-│   │   │   ├── DescriptionGenerator.js 
-│   │   │   ├── EnvironmentAnalyzer.js  
-│   │   │   └── ObjectClassifier.js     
+│   │   ├── environment/            # Environment analysis
+│   │   │   ├── DescriptionGenerator.js # Environment description
+│   │   │   ├── EnvironmentAnalyzer.js  # Environment analysis
+│   │   │   └── ObjectClassifier.js     # Object classification
 │   │   │
-│   │   ├── modes/                  
-│   │   │   ├── GuideMode.js        
-│   │   │   ├── NavigateMode.js     
-│   │   │   └── OperationMode.js    
+│   │   ├── modes/                  # Operation modes
+│   │   │   ├── GuideMode.js        # Guide mode implementation
+│   │   │   ├── NavigateMode.js     # Navigate mode implementation
+│   │   │   └── OperationMode.js    # Mode definitions
 │   │   │
-│   │   ├── navigation/             
-│   │   │   └── NavigationMessage.js 
+│   │   ├── navigation/             # Navigation services
+│   │   │   └── NavigationMessage.js # Navigation message generation
 │   │   │
-│   │   ├── speech/                 
-│   │   │   ├── MessageFormatter.js 
-│   │   │   ├── SpeechDebouncer.js  
-│   │   │   ├── SpeechQueue.js      
-│   │   │   └── VoiceSelector.js    
+│   │   ├── speech/                 # Speech-related services
+│   │   │   ├── MessageFormatter.js # Speech message formatting
+│   │   │   ├── SpeechDebouncer.js  # Speech repetition prevention
+│   │   │   ├── SpeechQueue.js      # Speech priority queue
+│   │   │   └── VoiceSelector.js    # Voice selection service
 │   │   │
-│   │   └── voice/                  
-│   │       ├── CommandProcessor.js 
-│   │       ├── SpeechRecognizer.js 
-│   │       ├── SpeechSynthesizer.js 
-│   │       ├── VoiceAssistant.js   
-│   │       ├── VoiceInitializer.js 
-│   │       ├── VoiceState.js       
-│   │       ├── commands/           
-│   │       │   └── StopCommandHandler.js 
-│   │       └── greetings.js        
+│   │   └── voice/                  # Voice assistant services
+│   │       ├── CommandProcessor.js # Voice command processing
+│   │       ├── SpeechRecognizer.js # Speech recognition
+│   │       ├── SpeechSynthesizer.js # Speech synthesis
+│   │       ├── VoiceAssistant.js   # Voice assistant main service
+│   │       ├── VoiceInitializer.js # Voice services initialization
+│   │       ├── VoiceState.js       # Voice assistant state
+│   │       ├── commands/           # Voice command handlers
+│   │       │   └── StopCommandHandler.js # Stop command handler
+│   │       └── greetings.js        # Voice greeting messages
 │   │
-│   ├── styles/                     
-│   │   ├── base.css               
-│   │   ├── index.css              
-│   │   ├── theme.css              
+│   ├── styles/                     # CSS styles (modular)
+│   │   ├── base.css               # Base styles
+│   │   ├── index.css              # CSS entry point
+│   │   ├── theme.css              # Theme variables
 │   │   │
-│   │   └── components/            
-│   │       ├── buttons.css        
-│   │       ├── footer.css         
-│   │       ├── navbar.css         
-│   │       ├── sections.css       
-│   │       ├── stats.css          
-│   │       └── video.css          
+│   │   └── components/            # Component-specific styles
+│   │       ├── buttons.css        # Button styles
+│   │       ├── footer.css         # Footer styles
+│   │       ├── navbar.css         # Navigation bar styles
+│   │       ├── sections.css       # Section styles
+│   │       ├── stats.css          # Statistics styles
+│   │       └── video.css          # Video container styles
 │   │
-│   └── utils/                     
-│       ├── constants.js           
-│       ├── domUtils.js            
-│       ├── mobileNav.js           
-│       ├── navigation.js          
-│       └── scrollUtils.js         
+│   └── utils/                     # Utility functions
+│       ├── constants.js           # Application constants
+│       ├── domUtils.js            # DOM manipulation utilities
+│       ├── mobileNav.js           # Mobile navigation utilities
+│       ├── navigation.js          # Navigation utilities
+│       └── scrollUtils.js         # Scroll behavior utilities
 │
-└── node_modules/ 
+└── node_modules/                  # Node.js dependencies (not shown)
 ---
 Data Flow
 
