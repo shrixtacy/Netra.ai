@@ -26,117 +26,6 @@
 - **Terser**: JavaScript minifier for production builds
 
 ---
-
-## System Architecture
-
-The application follows a modular, service-oriented architecture with clear separation of concerns.
-
-### Core Components
-
-#### Camera System
-
-- **CameraService**: Manages camera initialization, permissions, and streaming
-- **CameraManager**: Coordinates camera operations with other services
-- **CameraError**: Standardized error handling for camera operations
-
-#### AI Detection System
-
-- **ObjectDetector**: Interfaces with TensorFlow\.js and COCO-SSD model
-- **ModelLoader**: Handles model initialization and optimization
-- **PredictionFilter**: Filters and prioritizes relevant objects
-
-#### Navigation System
-
-- **NavigationSystem**: Core navigation logic and mode management
-- **NavigateMode**: Path planning and obstacle avoidance
-- **GuideMode**: Environment description and guidance
-
-#### Voice Interaction System
-
-- **VoiceAssistant**: Manages speech recognition and synthesis
-- **SpeechRecognizer**: Handles voice command detection
-- **SpeechSynthesizer**: Manages text-to-speech output
-- **CommandProcessor**: Processes and routes voice commands
-
-#### Visualization System
-
-- **Visualizer**: Renders camera feed, object detection boxes, and zones
-- **Stats**: Displays performance metrics and detection statistics
-
-
----
-/home/project/
-│
-├── index.html                      # Main HTML entry point
-├── package.json                    # Project dependencies and scripts
-├── vite.config.js                  # Vite configuration
-│
-├── src/                            # Source code directory
-│   ├── main.js                     # Application entry point
-│   ├── style.css                   # Main CSS styles
-│   │
-│   ├── components/                 # UI Components
-│   │   ├── CameraButton.js         # Camera toggle button component
-│   │   └── ModeSelector.js         # Mode selection component
-│   │
-│   ├── config/                     # Configuration files
-│   │   └── voiceConfig.js          # Voice assistant configuration
-│   │
-│   ├── managers/                   # Manager classes
-│   │   └── CameraManager.js        # Camera operations manager
-│   │
-│   ├── services/                   # Core services
-│   │   ├── NavigationSystem.js     # Navigation logic
-│   │   ├── ObjectDetector.js       # Object detection service
-│   │   ├── SpeechService.js        # Speech output service
-│   │   ├── Stats.js                # Statistics display service
-│   │   ├── Visualizer.js           # Canvas visualization service
-│   │   │
-│   │   ├── ai/                     # AI-related services
-│   │   │   ├── ModelLoader.js      # TensorFlow model loader
-│   │   │   └── PredictionFilter.js # Object prediction filtering
-│   │   │
-│   │   ├── camera/                 # Camera-related services
-│   │   │   ├── CameraCleanup.js    # Camera resource cleanup
-│   │   │   ├── CameraError.js      # Camera error handling
-│   │   │   ├── CameraInitializer.js # Camera initialization
-│   │   │   ├── CameraService.js    # Camera core service
-│   │   │   └── CameraState.js      # Camera state management
-│   │   │
-│   │   ├── environment/            # Environment analysis
-│   │   │   ├── DescriptionGenerator.js # Environment description
-│   │   │   ├── EnvironmentAnalyzer.js  # Environment analysis
-│   │   │   └── ObjectClassifier.js     # Object classification
-│   │   │
-│   │   ├── modes/                  # Operation modes
-│   │   │   ├── GuideMode.js        # Guide mode implementation
-│   │   │   ├── NavigateMode.js     # Navigate mode implementation
-│   │   │   └── OperationMode.js    # Mode definitions
-│   │   │
-│   │   ├── navigation/             # Navigation services
-│   │   │   └── NavigationMessage.js # Navigation message generation
-│   │   │
-│   │   ├── speech/                 # Speech-related services
-│   │   │   ├── MessageFormatter.js # Speech message formatting
-│   │   │   ├── SpeechDebouncer.js  # Speech repetition prevention
-│   │   │   ├── SpeechQueue.js      # Speech priority queue
-│   │   │   └── VoiceSelector.js    # Voice selection service
-│   │   │
-│   │   └── voice/                  # Voice assistant services
-│   │       ├── CommandProcessor.js # Voice command processing
-│   │       ├── SpeechRecognizer.js # Speech recognition
-│   │       ├── SpeechSynthesizer.js # Speech synthesis
-│   │       ├── VoiceAssistant.js   # Voice assistant main service
-│   │       ├── VoiceInitializer.js # Voice services initialization
-│   │       ├── VoiceState.js       # Voice assistant state
-│   │       ├── commands/           # Voice command handlers
-│   │       │   └── StopCommandHandler.js # Stop command handler
-│   │       └── greetings.js        # Voice greeting messages
-│   │
-│   ├── styles/                     # CSS styles (modular)
-│   ├── utils/                      # Utility functions
-│   └── node_modules/                # Node.js dependencies (not shown)
----
 Data Flow
 
 ### Input Processing
@@ -419,5 +308,97 @@ export class SpeechService {
 ## **Conclusion**
 
 NETRA.AI represents a groundbreaking advancement in assistive technology, specifically tailored for visually impaired individuals. By synthesizing AI innovation, robust software architecture, and user-centric design, the platform addresses critical challenges in navigation and mobility. With ambitious plans for GPS integration, wearable devices, and multilingual support, NETRA.AI is poised to redefine accessibility standards globally. Through continued innovation and user engagement, NETRA.AI aims to empower users, fostering independence and inclusivity in their everyday lives.
+
+
+/home/project/
+│
+├── index.html                      # Main HTML entry point
+├── package.json                    # Project dependencies and scripts
+├── vite.config.js                  # Vite configuration
+│
+├── src/                            # Source code directory
+│   ├── main.js                     # Application entry point
+│   ├── style.css                   # Main CSS styles
+│   │
+│   ├── components/                 # UI Components
+│   │   ├── CameraButton.js         # Camera toggle button component
+│   │   └── ModeSelector.js         # Mode selection component
+│   │
+│   ├── config/                     # Configuration files
+│   │   └── voiceConfig.js          # Voice assistant configuration
+│   │
+│   ├── managers/                   # Manager classes
+│   │   └── CameraManager.js        # Camera operations manager
+│   │
+│   ├── services/                   # Core services
+│   │   ├── NavigationSystem.js     # Navigation logic
+│   │   ├── ObjectDetector.js       # Object detection service
+│   │   ├── SpeechService.js        # Speech output service
+│   │   ├── Stats.js                # Statistics display service
+│   │   ├── Visualizer.js           # Canvas visualization service
+│   │   │
+│   │   ├── ai/                     # AI-related services
+│   │   │   ├── ModelLoader.js      # TensorFlow model loader
+│   │   │   └── PredictionFilter.js # Object prediction filtering
+│   │   │
+│   │   ├── camera/                 # Camera-related services
+│   │   │   ├── CameraCleanup.js    # Camera resource cleanup
+│   │   │   ├── CameraError.js      # Camera error handling
+│   │   │   ├── CameraInitializer.js # Camera initialization
+│   │   │   ├── CameraService.js    # Camera core service
+│   │   │   └── CameraState.js      # Camera state management
+│   │   │
+│   │   ├── environment/            # Environment analysis
+│   │   │   ├── DescriptionGenerator.js # Environment description
+│   │   │   ├── EnvironmentAnalyzer.js  # Environment analysis
+│   │   │   └── ObjectClassifier.js     # Object classification
+│   │   │
+│   │   ├── modes/                  # Operation modes
+│   │   │   ├── GuideMode.js        # Guide mode implementation
+│   │   │   ├── NavigateMode.js     # Navigate mode implementation
+│   │   │   └── OperationMode.js    # Mode definitions
+│   │   │
+│   │   ├── navigation/             # Navigation services
+│   │   │   └── NavigationMessage.js # Navigation message generation
+│   │   │
+│   │   ├── speech/                 # Speech-related services
+│   │   │   ├── MessageFormatter.js # Speech message formatting
+│   │   │   ├── SpeechDebouncer.js  # Speech repetition prevention
+│   │   │   ├── SpeechQueue.js      # Speech priority queue
+│   │   │   └── VoiceSelector.js    # Voice selection service
+│   │   │
+│   │   └── voice/                  # Voice assistant services
+│   │       ├── CommandProcessor.js # Voice command processing
+│   │       ├── SpeechRecognizer.js # Speech recognition
+│   │       ├── SpeechSynthesizer.js # Speech synthesis
+│   │       ├── VoiceAssistant.js   # Voice assistant main service
+│   │       ├── VoiceInitializer.js # Voice services initialization
+│   │       ├── VoiceState.js       # Voice assistant state
+│   │       ├── commands/           # Voice command handlers
+│   │       │   └── StopCommandHandler.js # Stop command handler
+│   │       └── greetings.js        # Voice greeting messages
+│   │
+│   ├── styles/                     # CSS styles (modular)
+│   │   ├── base.css               # Base styles
+│   │   ├── index.css              # CSS entry point
+│   │   ├── theme.css              # Theme variables
+│   │   │
+│   │   └── components/            # Component-specific styles
+│   │       ├── buttons.css        # Button styles
+│   │       ├── footer.css         # Footer styles
+│   │       ├── navbar.css         # Navigation bar styles
+│   │       ├── sections.css       # Section styles
+│   │       ├── stats.css          # Statistics styles
+│   │       └── video.css          # Video container styles
+│   │
+│   └── utils/                     # Utility functions
+│       ├── constants.js           # Application constants
+│       ├── domUtils.js            # DOM manipulation utilities
+│       ├── mobileNav.js           # Mobile navigation utilities
+│       ├── navigation.js          # Navigation utilities
+│       └── scrollUtils.js         # Scroll behavior utilities
+│
+└── node_modules/                  # Node.js dependencies (not shown)
+
 
 
